@@ -386,7 +386,6 @@ async function createTree(
 There're still other ways to do this, but I only try this method here.
 
 #### Method 1: Create Instruction
-<details><summary>code</summary>
 ``` javascript
 async function mintSingleCNFT(treeKeypair, collection, collectionMetadataV3) {
     const compressedNFTMetadata = {
