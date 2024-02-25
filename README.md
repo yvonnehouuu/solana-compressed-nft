@@ -1,4 +1,4 @@
-# Compressed NFT
+# Solana Compressed NFT
 ## About Compressed NFT
 _"Instead of storing an NFT's metadata in a typical Solana account, compressed NFTs store the metadata within the ledger. "_  [(solana)](https://docs.solana.com/developing/guides/compressed-nfts#intro-to-compressed-nfts)
 
