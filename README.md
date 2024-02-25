@@ -39,9 +39,11 @@ _Within the Read API, digital assets (i.e. NFTs) are indexed by their id. This a
 * _for traditional/uncompressed NFTs: this is the token's address for the actual Account on-chain that stores the metadata for the asset._
 * _for compressed NFTs: this is the id of the compressed NFT within the tree and is NOT an actual on-chain Account address. While a compressed NFT's assetId resembles a traditional Solana Account address, it is not._
 
-asset:![螢幕擷取畫面_2023-09-24_212841](/uploads/a99e0e9071c167b0133d7e43b2eab2c1/螢幕擷取畫面_2023-09-24_212841.png)
+asset:![asset](https://github.com/yvonnehouuu/solana-compressed-nft/assets/151607390/d2860ebb-28bf-463a-852c-48cb59b6885d)
 
-asset proof![螢幕擷取畫面_2023-09-24_222651](/uploads/d5b49d3265d6ef3ef35358ebee764d35/螢幕擷取畫面_2023-09-24_222651.png)
+
+asset proof:![assetproof](https://github.com/yvonnehouuu/solana-compressed-nft/assets/151607390/3bcfa209-973a-4879-8d3b-1ef67fdb0b40)
+
 
 ## Get Started: Setup
 Before we start creating our compressed NFT collection, we need to install a few packages:
