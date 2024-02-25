@@ -77,8 +77,6 @@ There are 3 main steps to proceed:
 There're 2 methods to create NFT collection, **Metpalex NFT Client** & **Create Instruction**. If you want to use `NFTclient`, remember to install the required packages and declare variables. The currently installed packages include only those necessary for the `creatInstruction` method.
 
 #### Method 1: NFTclient
-<details><summary>code</summary>
-
 ``` javascript
 async function createCollectionNft() {
   const { nft: collectionNft } = await metaplex.nfts().create({
@@ -108,11 +106,7 @@ async function createCollectionNft() {
 }
 ```
 
-</details>
-
 #### Method 2: createInstruction
-<details><summary>code</summary>
-
 `index.js`:
 ``` javascript
 async function createCollectionNFT() {
@@ -268,7 +262,6 @@ async function createCollection(
 }
 ```
 
-</details>
 
 ### Create Merkle Tree
 There are still two approaches available: the `Bubblegum SDK Client` and the `Bubblegum SDK Create Instruction`.
@@ -278,8 +271,6 @@ Please take note of a particular detail here: the latest version of Bubblegum SD
 Additionally, when using the client, `umi` is required, which results in the need to employ the `@coral-xyz/anchor` package for wallet connectivity. This may potentially conflict with the wallet method used by the NFTclient. And also, if you're only creating and minting, it's okay to use the `Connection()` function from `@solana/web3.js`. However, if you plan to transfer, you'll need to use the `WrapperConnection()` that we'll create later. This way, you'll be able to read the metadata in the tree.
 
 #### Method 1: Bubblegum Client(Unresolved Issue)
-<details><summary>code</summary>
-
 ``` javascript
 async function createCnftTree() {
   const builder = await createTree(umi, {
@@ -294,11 +285,7 @@ async function createCnftTree() {
 }
 ```
 
-</details>
-
 #### Method 2: Bubblegum SDK createInstruction
-<details><summary>code</summary>
-
 `index.js`:
 ``` javascript
 async function createMerkleTree() {
@@ -395,15 +382,11 @@ async function createTree(
 }
 ```
 
-</details>
-
 ### Create mint
 There're still other ways to do this, but I only try this method here.
 
 #### Method 1: Create Instruction
 <details><summary>code</summary>
-
-`index.js`:
 ``` javascript
 async function mintSingleCNFT(treeKeypair, collection, collectionMetadataV3) {
     const compressedNFTMetadata = {
@@ -549,9 +532,6 @@ async function mintCompressedNFT(
 }
 ```
 
-</details>
-
-
 ## Part 2: How to transfer a compressed NFT
 1. get the NFT's "asset" data (from the indexer)
 2. get the NFT's proof (from the indexer)
@@ -563,8 +543,6 @@ async function mintCompressedNFT(
 - Wrapper class to add additional methods on top the standard Connection from `@solana/web3.js`
 - Specifically, adding the RPC methods used by the Digital Asset Standards (DAS) ReadApi 
 - For state compression and compressed NFTs
-
-<details><summary>code</summary>
 
 ``` javascript
 class WrapperConnection extends Connection {
@@ -674,15 +652,11 @@ class WrapperConnection extends Connection {
   }
 }
 ```
-</details>
-
 
 ### Get `asset` data and `asset proof`
 About `asset` data and `asset proof` have been mentioned above👆
 
 #### Get asset data
-<details><summary>code</summary>
-
 ``` javascript
 async function getTheAsset(assetId) {
   printConsoleSeparator("Get the asset details from the RPC");
@@ -703,11 +677,7 @@ async function getTheAsset(assetId) {
 }
 ```
 
-</details>
-
 #### Get asset proof
-<details><summary>code</summary>
-
 ``` javascript
 async function getTheAssetProof(assetId) {
   printConsoleSeparator("Get the asset proof from the RPC");
@@ -720,12 +690,8 @@ async function getTheAssetProof(assetId) {
 }
 ```
 
-</details>
-
 ### Get Merkle tree and verify proof
 #### Get Merkle tree
-<details><summary>code</summary>
-
 ``` javascript
 async function getTreeAccount(asset) {
   // parse the tree's address from the `asset`
@@ -739,11 +705,7 @@ async function getTreeAccount(asset) {
 }
 ```
 
-</details>
-
 #### Verify proof
-<details><summary>code</summary>
-
 ``` javascript
 async function verifyTree(asset, assetProof, treeAccount) {
   printConsoleSeparator("Validate the RPC provided asset proof on the client side:");
@@ -770,11 +732,7 @@ async function verifyTree(asset, assetProof, treeAccount) {
 }
 ```
 
-</details>
-
 ### Transfer
-<details><summary>code</summary>
-
 ``` javascript
 async function transferNFT(payer, testWallet, assetId, asset, assetProof, treeAddress, treeAccount) {
   // set the new owner of the compressed NFT
@@ -887,5 +845,3 @@ async function transferNFT(payer, testWallet, assetId, asset, assetProof, treeAd
   }
 }
 ```
-
-</details>
